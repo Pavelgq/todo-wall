@@ -1,0 +1,35 @@
+.card {
+  display: grid;
+
+  grid-template-columns: 1fr;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  
+  gap: 20px;
+}
+
+.title {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.infoPanel {
+  display: grid;
+
+  grid-template-columns: 1fr auto;
+
+  margin-bottom: 20px;
+
+  color: #8a9ca5;
+}
+
+.addInput {
+  margin-bottom: 20px;
+
+  border: 2px solid var(--black)
+}

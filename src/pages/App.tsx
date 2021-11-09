@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Input } from '../components'
-import { addNewTodo, selectTodo, TodoItemProps } from '../components/TodoItem/todoSlice';
+import { Button, Input, TodoItem, Card} from '../components'
+import { TodoItemProps } from '../components/TodoItem/TodoItem.props';
+import { addNewTodo, selectTodo } from '../components/TodoItem/todoSlice';
+import { declinWord } from '../helpers/otherHelpers';
 
 import styles from './App.module.css'
 
@@ -20,25 +22,38 @@ export const App = (): JSX.Element => {
       tags: ['first']
     }
     dispatch(addNewTodo(newTodo))
+    setInputValue('');
+  }
+
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if (e.key === 'Enter' && inputValue) {
+      addMyTodo();
+    }
   }
 
   return (
     <>
-      <ul>
-        
+      <Card className={styles.card}>
+        <h2 className={styles.title}>Мой список</h2>
+        <div className={styles.infoPanel}>
+            <span>{state.length} {declinWord(state.length, ['задачи', 'задача', 'задач'])}</span>
+            <div>Тут фильтры</div>
+          </div>
+        <Input
+          className={styles.addInput}
+          placeholder='Введите...'
+          value={inputValue}
+          onChange={({target}) => setInputValue(target.value)}
+          onKeyDown={handleKeyDown}
+        />
+      <ul className={styles.list}>
+        {state.length && state.map(t => (
+          <TodoItem {...t}></TodoItem>
+        ))}
       </ul>
-      <Input
-        className={styles.addInput}
-        value={inputValue}
-        onChange={({target}) => setInputValue(target.value)}
-
-      />
-      <Button 
-        appearence='primary' 
-        className={styles.addButton}
-        onClick={inputValue && addMyTodo}
       
-      >+</Button>
-    </>
+   
+      </Card>
+     </>  
   )
 }

@@ -18,16 +18,16 @@
 
 .primary {
 	color: var(--white);
-	background-color: var(--primary);
+	background-color: var(--theme);
 }
 
 .primary:hover {
-	background-color: var(--primary-hover);
+	background-color: var(--primary);
 }
 
 .ghost {
 	color: var(--black);
-	border: 1px solid var(--gray-light);
+	border: 1px solid var(--gray);
 	background-color: none;
 }
 

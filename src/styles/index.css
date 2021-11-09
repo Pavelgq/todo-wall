@@ -1,0 +1,11 @@
+body {
+  width: 480px;
+  margin: 0 auto;
+
+  padding: 20px;
+  height: 100vh;
+
+  background: linear-gradient(90deg, #00c6fb, #005bea);
+
+  color: var(--text);
+}

@@ -1,13 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../store";
+import { TodoItemProps } from "./TodoItem.props";
 
 
-export interface TodoItemProps {
-  description: string;
-  check: boolean;
-  tags?: string[];
-  color?: string;
-}
+
 
 export interface TodoState {
   tasks: TodoItemProps[];
@@ -16,13 +12,13 @@ export interface TodoState {
 const initialState: TodoState = {
   tasks: [
     {
-      description: 'New Todo',
+      description: 'Приготовить ужин',
       check: false,
       tags: ['lol', 'ololo'],
       color: 'orange'
     },
     {
-      description: 'New Todo1',
+      description: 'Съесть ужин',
       check: true,
       tags: ['lol1', 'ololo'],
       color: 'red'
