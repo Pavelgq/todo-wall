@@ -5,4 +5,5 @@ export interface TodoItemProps {
   check: boolean;
   tags?: string[];
   color?: string;
+  id: string;
 }

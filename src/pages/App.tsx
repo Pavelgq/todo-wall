@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 import { Button, Input, TodoItem, Card} from '../components'
 import { TodoItemProps } from '../components/TodoItem/TodoItem.props';
 import { addNewTodo, selectTodo } from '../components/TodoItem/todoSlice';
@@ -19,9 +20,10 @@ export const App = (): JSX.Element => {
       description: inputValue,
       check: false,
       color: 'white',
-      tags: ['first']
+      tags: ['first'],
+      id: uuidv4(),
     }
-    dispatch(addNewTodo(newTodo))
+    dispatch(addNewTodo(newTodo));
     setInputValue('');
   }
 
