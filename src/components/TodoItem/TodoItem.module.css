@@ -11,7 +11,9 @@
 
 .wrapper {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 20px 1fr auto;
+  gap: 10px;
+  min-height: 20px;
 }
 
 .delButton {
@@ -23,6 +25,10 @@
   
   border-radius: 50%;
   border: 2px solid rgb(199, 69, 69);
+  opacity: 0;
+  cursor: pointer;
+  transition:  all 0.3s ease-in;
+  
 }
 
 .delButton::after {
@@ -54,6 +60,23 @@
 
 .item:hover .delButton {
   overflow: visible;
+  opacity: 100%;
   width: 20px;
   height: 20px;
+}
+
+.checkbox {
+  display: none;
+}
+
+.checkboxLabel {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      cursor: pointer;
+      border: 2px solid #bbbdc7;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+
 }

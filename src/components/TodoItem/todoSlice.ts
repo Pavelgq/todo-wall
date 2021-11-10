@@ -38,9 +38,14 @@ export const todoSlice = createSlice({
     deleteTodo: (state, action: PayloadAction<string>) => {
       state.tasks.length && state.tasks.splice((state.tasks.findIndex(t => t.id === action.payload)), 1);
     },
+    checkTodo: (state, action: PayloadAction<string>) => {
+      //TODO: Bug with check is undefine
+      const taskIndex = state.tasks.findIndex(t => t.id === action.payload)
+      state.tasks[taskIndex].check = !state.tasks[taskIndex].check;
+    }
   }
 });
-export const { addNewTodo, deleteTodo } = todoSlice.actions;
+export const { addNewTodo, deleteTodo, checkTodo } = todoSlice.actions;
 export const selectTodo = (state: RootState) => state.todo.tasks;
 
 
