@@ -2,6 +2,7 @@
 import cn from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteTodo, selectTodo, checkTodo } from '../TodoItem/todoSlice'
+import {ReactComponent as CheckIcon} from './check.svg'
 import styles from './TodoItem.module.css'
 import { TodoItemProps } from "./TodoItem.props"
 
@@ -14,22 +15,25 @@ export const TodoItem = ({description, tags, color, check, id}: TodoItemProps): 
     dispatch(deleteTodo(id))
   }
   const checkTodoItem = () => {
-    dispatch(checkTodo());
+    dispatch(checkTodo(id));
   }
   return (
     <>
       <li className={cn(styles.item, {
-        [styles.check]: check,
+        [styles.complite]: check,
       })}>
         <div className={styles.wrapper}>
           <input 
             type="checkbox" 
-            id="checkTodo" 
+            id={id} 
             className={styles.checkbox}
-            checked={check} 
+            defaultChecked={check} 
             onClick={checkTodoItem}
           />
-          <label htmlFor="checkTodo" className={styles.checkboxLabel}></label>
+          <label htmlFor={id} className={styles.checkboxLabel}>
+            <CheckIcon className={styles.check} />
+          </label>
+          
           <span>{description}</span>
           <button 
             className={styles.delButton}

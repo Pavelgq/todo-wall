@@ -50,7 +50,7 @@ export const App = (): JSX.Element => {
         />
       <ul className={styles.list}>
         {state.length && state.map(t => (
-          <TodoItem {...t}></TodoItem>
+          <TodoItem key={t.id} {...t}></TodoItem>
         ))}
       </ul>
       

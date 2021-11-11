@@ -1,12 +1,12 @@
 .item {
-  background: hsla(186, 33%, 94%, 1);
+  /* background: hsla(186, 33%, 94%, 1); */
   box-shadow: 3px 4px 20px 2px rgba(205, 228, 245, 0.2);
 
   padding: 14px;
 
   color: var(--black);
 
-  border-bottom: 1px solid var(--gray);
+  border-bottom: 1px solid #e2e4ea;
 }
 
 .wrapper {
@@ -74,9 +74,27 @@
       margin: 0;
       box-sizing: border-box;
       cursor: pointer;
-      border: 2px solid #bbbdc7;
+      border: 2px solid var(--gray);
       border-radius: 50%;
       width: 20px;
       height: 20px;
+      
 
+}
+.checkbox:checked .checkboxLabel {
+  border: 2px solid #38bb90;
+  background-color: #4acea3;
+}
+
+.complite {
+  text-decoration: line-through;
+  background-color: rgba(74, 206, 163, 0.1);
+  }
+
+.check {
+  display: none;
+  padding: 3px;
+  width: 10px;
+  height: 10px;
+  fill: var(--white);
 }
