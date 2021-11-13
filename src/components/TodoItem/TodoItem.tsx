@@ -1,6 +1,7 @@
 
 import cn from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
+import { Checkbox } from '../Checkbox/Checkbox';
 import { deleteTodo, selectTodo, checkTodo } from '../TodoItem/todoSlice'
 import {ReactComponent as CheckIcon} from './check.svg'
 import styles from './TodoItem.module.css'
@@ -23,7 +24,7 @@ export const TodoItem = ({description, tags, color, check, id}: TodoItemProps): 
         [styles.complite]: check,
       })}>
         <div className={styles.wrapper}>
-          <input 
+          {/* <input 
             type="checkbox" 
             id={id} 
             className={styles.checkbox}
@@ -32,7 +33,9 @@ export const TodoItem = ({description, tags, color, check, id}: TodoItemProps): 
           />
           <label htmlFor={id} className={styles.checkboxLabel}>
             <CheckIcon className={styles.check} />
-          </label>
+          </label> */}
+
+          <Checkbox id={id} check={check} handleClick={checkTodoItem} />
           
           <span>{description}</span>
           <button 
