@@ -30,6 +30,15 @@
   transition:  all 0.3s ease-in;
   
 }
+.delButton:focus {
+    overflow: visible;
+    opacity: 100%;
+    width: 20px;
+    height: 20px;
+    box-shadow: 0 0 0 3px #f8cf99;
+    outline: rgb(199, 69, 69);
+    ;
+}
 
 .delButton::after {
   position: absolute;
@@ -63,27 +72,6 @@
   opacity: 100%;
   width: 20px;
   height: 20px;
-}
-
-.checkbox {
-  display: none;
-}
-
-.checkboxLabel {
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
-      cursor: pointer;
-      border: 2px solid var(--gray);
-      border-radius: 50%;
-      width: 20px;
-      height: 20px;
-      
-
-}
-.checkbox:checked .checkboxLabel {
-  border: 2px solid #38bb90;
-  background-color: #4acea3;
 }
 
 .complite {

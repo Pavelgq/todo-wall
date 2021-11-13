@@ -24,17 +24,6 @@ export const TodoItem = ({description, tags, color, check, id}: TodoItemProps): 
         [styles.complite]: check,
       })}>
         <div className={styles.wrapper}>
-          {/* <input 
-            type="checkbox" 
-            id={id} 
-            className={styles.checkbox}
-            defaultChecked={check} 
-            onClick={checkTodoItem}
-          />
-          <label htmlFor={id} className={styles.checkboxLabel}>
-            <CheckIcon className={styles.check} />
-          </label> */}
-
           <Checkbox id={id} check={check} handleClick={checkTodoItem} />
           
           <span>{description}</span>

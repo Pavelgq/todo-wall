@@ -6,7 +6,6 @@
 .hiddenView {
   border: 0;
   clip: rect(0 0 0 0);
-  clippath: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -16,18 +15,23 @@
   width: 1px;
 }
 
-.hiddenView:focus + & {
-
+.hiddenView:focus+.activeView {
+  box-shadow: 0 0 0 3px #f8cf99;
 }
+
+.hiddenView:focus+.checkedIcon {
+  box-shadow: 0 0 0 3px #99f8d8;
+}
+
 
 .activeView {
   display: inline-block;
   width: 16px;
   height: 16px;
+  border: 2px solid var(--gray);
+  background-color: var(--white);
 
-  background-color: yellowgreen;
-
-  border-radius: 3px;
+  border-radius: 50%;
   transition: all 150ms;
 
   cursor: pointer;
@@ -37,14 +41,15 @@
    padding: 3px;
    width: 10px;
    height: 10px;
-  fill: black;
+  fill: #38bb90;
   stroke: white;
   stroke-width: 2px;
   visibility: hidden;
 } 
 
 .checkedIcon {
-  background-color: green;
+  background-color: rgba(74, 206, 163, 0.1);
+  border: 2px solid #38bb90;
 }
 
 .checkedIcon svg {
