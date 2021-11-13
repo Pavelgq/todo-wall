@@ -2,6 +2,7 @@
 import cn from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 import { Checkbox } from '../Checkbox/Checkbox';
+import { DeleteButton } from '../DeleteButton/DeleteButton';
 import { deleteTodo, selectTodo, checkTodo } from '../TodoItem/todoSlice'
 import {ReactComponent as CheckIcon} from './check.svg'
 import styles from './TodoItem.module.css'
@@ -27,11 +28,8 @@ export const TodoItem = ({description, tags, color, check, id}: TodoItemProps): 
           <Checkbox id={id} check={check} handleClick={checkTodoItem} />
           
           <span>{description}</span>
-          <button 
-            className={styles.delButton}
-            onClick={deleteTodoItem}
-            >
-            </button>
+          <DeleteButton className={styles.delButton}
+            handleClick={deleteTodoItem} />
         </div>
       </li>
     </>
