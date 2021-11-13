@@ -3,6 +3,7 @@ import { RootState } from "../../store";
 import { TodoItemProps } from "./TodoItem.props";
 
 import { v4 as uuidv4 } from 'uuid';
+import { SortEnam } from "../Sort/Sort.props";
 
 
 export interface TodoState {
@@ -16,14 +17,14 @@ const initialState: TodoState = {
       check: false,
       tags: ['lol', 'ololo'],
       color: 'orange',
-      id: uuidv4(),
+      id: uuidv4()
     },
     {
       description: 'Съесть ужин',
       check: true,
       tags: ['lol1', 'ololo'],
       color: 'red',
-      id: uuidv4(),
+      id: uuidv4()
     },
   ],
 }
@@ -42,6 +43,9 @@ export const todoSlice = createSlice({
       //TODO: Bug with check is undefine
       const taskIndex = state.tasks.findIndex(t => t.id === action.payload)
       state.tasks[taskIndex].check = !state.tasks[taskIndex].check;
+    },
+    sortTodo: (state, action: PayloadAction<SortEnam>) => {
+      
     }
   }
 });
