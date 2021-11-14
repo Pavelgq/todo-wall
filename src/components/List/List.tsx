@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import { Input, TodoItem, Card, Sort} from '../'
+import { Input, TodoItem, Card, Sort, Editor} from '../'
 import { SortEnam } from '../Sort/Sort.props';
 import { TodoItemProps } from '../TodoItem/TodoItem.props';
 import { addNewTodo, selectTodo } from '../TodoItem/todoSlice';
@@ -9,6 +9,7 @@ import { declinWord } from '../../helpers/otherHelpers';
 
 import styles from './List.module.css'
 import { ListProps } from './List.props';
+import { changeTitle } from './listSlice';
 
 export const List = ({title, id}: ListProps): JSX.Element => {
   const [inputValue, setInputValue] = useState<string>('');
@@ -40,6 +41,14 @@ export const List = ({title, id}: ListProps): JSX.Element => {
     setSortType(s);
   }
 
+  const changeListTitle = (newTitle: string) => {
+    const obj = {
+      title: newTitle,
+      id
+    }
+    dispatch(changeTitle(obj))
+  }
+
   
 
   useEffect(() => {
@@ -60,7 +69,9 @@ export const List = ({title, id}: ListProps): JSX.Element => {
   return (
     <>
       <Card className={styles.card}>
-        <h2 className={styles.title}>{title}</h2>
+        <Editor oldValue={title} changeValue={changeListTitle}> 
+            <h2 className={styles.title}>{title}</h2> 
+        </Editor>
         <div className={styles.infoPanel}>
             <span>{sortState.length} {declinWord(state.length, ['задачи', 'задача', 'задач'])}</span>
             <Sort sort={sortType} setSort={changeSort} />

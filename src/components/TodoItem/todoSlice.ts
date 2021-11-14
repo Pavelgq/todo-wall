@@ -36,7 +36,7 @@ export const todoSlice = createSlice({
   initialState,
   reducers: {
     addNewTodo: (state, action: PayloadAction<TodoItemProps>) => {
-      state.tasks.push(action.payload)
+      state.tasks.unshift(action.payload)
     },
     deleteTodo: (state, action: PayloadAction<string>) => {
       state.tasks.length && state.tasks.splice((state.tasks.findIndex(t => t.id === action.payload)), 1);

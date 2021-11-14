@@ -29,11 +29,19 @@ export const listSlice = createSlice({
     deleteList: (state, action: PayloadAction<string> ) => {
       state.lists.length && state.lists.splice((state.lists.findIndex(t => t.id === action.payload)), 1);
     },
+    changeTitle: (state, action: PayloadAction<ListProps>) => {
+      state.lists = state.lists.map(l => {
+        if (l.id === action.payload.id) {
+          l.title = action.payload.title;
+        }
+        return l;
+      })
+    }
 
   }
 })
 
-export const {addNewList, deleteList} = listSlice.actions;
+export const {addNewList, deleteList, changeTitle} = listSlice.actions;
 export const selectList = (state: RootState) => state.list.lists; 
 
 export default listSlice.reducer;

@@ -3,6 +3,7 @@
 
   grid-template-columns: 1fr;
   padding-top: 15px;
+  margin-bottom: 10px;
 }
 
 .list {
@@ -21,6 +22,9 @@
   margin: 0;
   margin-bottom: 10px;
   padding: 0 20px;
+
+  font-weight: bold;
+  font-size: 20px;
 
 }
 
