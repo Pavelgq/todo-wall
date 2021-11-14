@@ -1,3 +1,28 @@
+# Список задач (TODO LIST)
+
+Typescript, React, Redux, classnames
+
+- [x] Добавление новых задач
+- [x] Удаление задач
+- [x] Фильтр выбора всех, выполненных или активных задач
+- [ ] Теги
+- [ ] Фильтр по тегам
+- [ ] State в Localstorage
+- [ ] Изменение имени списка
+- [ ] Добавление новых списков
+- [ ] Удаление списков
+- [ ] Анимации
+
+Для ознокомления, клонируйте репозиторий командой:
+
+### `git clone https://github.com/Pavelgq/todo-wall.git`
+
+После чего выполните команду:
+
+### `npm start`
+
+Подробнее:
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
 ## Available Scripts

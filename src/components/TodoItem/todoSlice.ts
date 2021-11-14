@@ -10,7 +10,7 @@ export interface TodoState {
   tasks: TodoItemProps[];
 }
 
-const initialState: TodoState = {
+export const initialState: TodoState = {
   tasks: [
     {
       description: 'Приготовить ужин',
