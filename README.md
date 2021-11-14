@@ -1,4 +1,6 @@
-# Список задач (TODO LIST)
+# Список задач (Todo list)
+
+![Внешний вид приложения Todo list](/assets/images/screen.png)
 
 Typescript, React, Redux, classnames
 
@@ -13,13 +15,15 @@ Typescript, React, Redux, classnames
 - [ ] Удаление списков
 - [ ] Анимации
 
+---
+
 Для ознокомления, клонируйте репозиторий командой:
 
-### `git clone https://github.com/Pavelgq/todo-wall.git`
+`git clone https://github.com/Pavelgq/todo-wall.git`
 
 После чего выполните команду:
 
-### `npm start`
+`npm start`
 
 Подробнее:
 
