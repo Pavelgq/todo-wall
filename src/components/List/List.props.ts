@@ -2,5 +2,5 @@
 
 export interface ListProps {
   title: string;
-  state?: TodoItemsProps[];
+  id: string;
 }

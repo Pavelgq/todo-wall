@@ -6,4 +6,5 @@ export interface TodoItemProps {
   tags?: string[];
   color?: string;
   id: string;
+  listId: string;
 }

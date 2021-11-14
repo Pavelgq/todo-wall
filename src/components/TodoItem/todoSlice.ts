@@ -17,14 +17,16 @@ export const initialState: TodoState = {
       check: false,
       tags: ['lol', 'ololo'],
       color: 'orange',
-      id: uuidv4()
+      id: uuidv4(),
+      listId: '1',
     },
     {
       description: 'Съесть ужин',
       check: true,
       tags: ['lol1', 'ololo'],
       color: 'red',
-      id: uuidv4()
+      id: uuidv4(),
+      listId: '1',
     },
   ],
 }
@@ -40,12 +42,11 @@ export const todoSlice = createSlice({
       state.tasks.length && state.tasks.splice((state.tasks.findIndex(t => t.id === action.payload)), 1);
     },
     checkTodo: (state, action: PayloadAction<string>) => {
-      //TODO: Bug with check is undefine
       const taskIndex = state.tasks.findIndex(t => t.id === action.payload)
       state.tasks[taskIndex].check = !state.tasks[taskIndex].check;
     },
-    sortTodo: (state, action: PayloadAction<SortEnam>) => {
-      
+    deleteList: (state, action: PayloadAction<string>) => {
+      state.tasks = state.tasks.filter(t => t.listId !== action.payload);
     }
   }
 });

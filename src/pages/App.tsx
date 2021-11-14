@@ -1,16 +1,28 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import { Button, Input, TodoItem, Card, Sort, List} from '../components'
-import { SortEnam } from '../components/Sort/Sort.props';
-import { TodoItemProps } from '../components/TodoItem/TodoItem.props';
-import { addNewTodo, selectTodo } from '../components/TodoItem/todoSlice';
-import { declinWord } from '../helpers/otherHelpers';
 
-import styles from './App.module.css'
+import { Button, List} from '../components'
+import { addNewList, selectList } from '../components/List/listSlice';
+
 
 export const App = (): JSX.Element => {
+  const state = useSelector(selectList);
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    const newList = {
+      title: 'Новый лист',
+      id: uuidv4(),
+    }
+    dispatch(addNewList(newList))
+  }
+
   return (
-    <List title='Мои дела'/>
+    <>
+      {state && state.map(l => {
+          return <List key={l.id} title={l.title} id={l.id}/>
+      })}
+      <Button appearence={'primary'} onClick={handleClick}>Добавить лист</Button>
+    </> 
   )
 }

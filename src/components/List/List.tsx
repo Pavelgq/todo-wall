@@ -10,7 +10,7 @@ import { declinWord } from '../../helpers/otherHelpers';
 import styles from './List.module.css'
 import { ListProps } from './List.props';
 
-export const List = ({title}: ListProps): JSX.Element => {
+export const List = ({title, id}: ListProps): JSX.Element => {
   const [inputValue, setInputValue] = useState<string>('');
   const [sortType, setSortType] = useState<SortEnam>(0);
   const [sortState, setSortState] = useState<TodoItemProps[]>([]);
@@ -25,6 +25,7 @@ export const List = ({title}: ListProps): JSX.Element => {
       color: 'white',
       tags: ['first'],
       id: uuidv4(),
+      listId: id,
     }
     dispatch(addNewTodo(newTodo));
     setInputValue('');
@@ -42,25 +43,26 @@ export const List = ({title}: ListProps): JSX.Element => {
   
 
   useEffect(() => {
+    let newState = state.filter(t => t.listId === id)
     switch (sortType) {
       case 0:
-          setSortState(state)
+          setSortState(newState)
         break;
       case 1:
-          setSortState(state.filter(t => !t.check))
+          setSortState(newState.filter(t => !t.check))
         break;
        case 2:
-          setSortState(state.filter(t => t.check))
+          setSortState(newState.filter(t => t.check))
         break;
     }
-  }, [state, sortType])
+  }, [state, sortType, id])
 
   return (
     <>
       <Card className={styles.card}>
         <h2 className={styles.title}>{title}</h2>
         <div className={styles.infoPanel}>
-            <span>{state.length} {declinWord(state.length, ['задачи', 'задача', 'задач'])}</span>
+            <span>{sortState.length} {declinWord(state.length, ['задачи', 'задача', 'задач'])}</span>
             <Sort sort={sortType} setSort={changeSort} />
           </div>
         <Input
