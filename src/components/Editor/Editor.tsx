@@ -20,7 +20,8 @@ export const Editor = ({oldValue, changeValue, children, className, ...props}: E
     if (e.key === 'Enter' || e.key === 'Tab') {
       editTitle()
     } else {
-      if (e.key === 'Esc') {
+      if (e.key === 'Escape') {
+        setEditValue(oldValue)
         setEditStatus(!editStatus)
       }
     }

@@ -11,7 +11,7 @@ import styles from './List.module.css'
 import { ListProps } from './List.props';
 import { changeTitle } from './listSlice';
 
-export const List = ({title, id}: ListProps): JSX.Element => {
+export const List = ({title, id, className}: ListProps): JSX.Element => {
   const [inputValue, setInputValue] = useState<string>('');
   const [sortType, setSortType] = useState<SortEnam>(0);
   const [sortState, setSortState] = useState<TodoItemProps[]>([]);
@@ -49,8 +49,6 @@ export const List = ({title, id}: ListProps): JSX.Element => {
     dispatch(changeTitle(obj))
   }
 
-  
-
   useEffect(() => {
     let newState = state.filter(t => t.listId === id)
     switch (sortType) {
@@ -67,7 +65,7 @@ export const List = ({title, id}: ListProps): JSX.Element => {
   }, [state, sortType, id])
 
   return (
-    <>
+    <div className={className}>
       <Card className={styles.card}>
         <Editor oldValue={title} changeValue={changeListTitle}> 
             <h2 className={styles.title}>{title}</h2> 
@@ -92,6 +90,6 @@ export const List = ({title, id}: ListProps): JSX.Element => {
       
    
       </Card>
-     </>  
+     </div>  
   )
 }

@@ -1,11 +1,11 @@
 body {
-  width: 480px;
-  margin: 0 auto;
+  width: 100vh;
 
   padding: 20px;
   height: 100vh;
 
-  background: linear-gradient(90deg, #00c6fb, #005bea);
+  background: linear-gradient(90deg, #00c6fb, #005bea, #00c6fb);
+
 
   color: var(--text);
 }

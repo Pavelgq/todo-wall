@@ -47,10 +47,14 @@ export const todoSlice = createSlice({
     },
     deleteList: (state, action: PayloadAction<string>) => {
       state.tasks = state.tasks.filter(t => t.listId !== action.payload);
-    }
+    },
+    editTodoDescription: (state, action: PayloadAction<TodoItemProps>) => {
+      const taskIndex = state.tasks.findIndex(t => t.id === action.payload.id)
+      state.tasks[taskIndex].description = action.payload.description;
+    } 
   }
 });
-export const { addNewTodo, deleteTodo, checkTodo } = todoSlice.actions;
+export const { addNewTodo, deleteTodo, checkTodo, editTodoDescription } = todoSlice.actions;
 export const selectTodo = (state: RootState) => state.todo.tasks;
 
 
