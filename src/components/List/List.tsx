@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import { Input, TodoItem, Card, Sort, Editor} from '../'
+import { Input, TodoItem, Card, Sort, Editor, Button} from '../'
 import { SortEnam } from '../Sort/Sort.props';
 import { TodoItemProps } from '../TodoItem/TodoItem.props';
 import { addNewTodo, selectTodo } from '../TodoItem/todoSlice';
@@ -9,7 +9,7 @@ import { declinWord } from '../../helpers/otherHelpers';
 
 import styles from './List.module.css'
 import { ListProps } from './List.props';
-import { changeTitle } from './listSlice';
+import { changeTitle, deleteList } from './listSlice';
 
 export const List = ({title, id, className}: ListProps): JSX.Element => {
   const [inputValue, setInputValue] = useState<string>('');
@@ -87,9 +87,9 @@ export const List = ({title, id, className}: ListProps): JSX.Element => {
         )): 
         <span className={styles.empty}>Тут ничего нет...</span>}
       </ul>
-      
-   
       </Card>
+
+      <Button className={styles.deleteButton} appearence={'delete'} onClick={() => dispatch(deleteList(id))}>Удалить список</Button>
      </div>  
   )
 }

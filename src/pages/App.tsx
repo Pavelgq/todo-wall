@@ -24,7 +24,7 @@ export const App = (): JSX.Element => {
       {state && state.map(l => {
           return <List key={l.id} title={l.title} id={l.id} className={styles.list}/>
       })}
-      <Button appearence={'primary'} onClick={handleClick}>Добавить лист</Button>
+      <Button appearence={'primary'} className={styles.addButton} onClick={handleClick}>Добавить лист</Button>
     </div> 
   )
 }
