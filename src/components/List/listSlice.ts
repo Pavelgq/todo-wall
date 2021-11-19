@@ -5,19 +5,13 @@ import { v4 as uuidv4 } from 'uuid';
 import { initialState as todos, todoSlice } from "../TodoItem/todoSlice";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../store";
+import { getLocalStorageState } from '../../helpers/localStorageState'
 
 export interface ListState {
   lists: ListProps[];
 }
 
-const initialState: ListState = {
-  lists: [
-    {
-      title: 'Мои задачи',
-      id: '1',
-    }
-  ]
-}
+const initialState: ListState = getLocalStorageState().list;
 
 export const listSlice = createSlice({
   name: 'List',

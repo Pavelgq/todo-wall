@@ -4,32 +4,15 @@ import { TodoItemProps } from "./TodoItem.props";
 
 import { v4 as uuidv4 } from 'uuid';
 import { SortEnam } from "../Sort/Sort.props";
+import { getLocalStorageState } from '../../helpers/localStorageState';
+
 
 
 export interface TodoState {
   tasks: TodoItemProps[];
 }
 
-export const initialState: TodoState = {
-  tasks: [
-    {
-      description: 'Приготовить ужин',
-      check: false,
-      tags: ['lol', 'ololo'],
-      color: 'orange',
-      id: uuidv4(),
-      listId: '1',
-    },
-    {
-      description: 'Съесть ужин',
-      check: true,
-      tags: ['lol1', 'ololo'],
-      color: 'red',
-      id: uuidv4(),
-      listId: '1',
-    },
-  ],
-}
+export const initialState: TodoState = getLocalStorageState().todo;
 
 export const todoSlice = createSlice({
   name: 'Todo',

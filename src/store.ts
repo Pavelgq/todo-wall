@@ -12,3 +12,10 @@ export const store = configureStore({
 
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
+
+const saveStoreToLocalStorage = () => {
+  const lastStore = store.getState();
+  localStorage.setItem('store', JSON.stringify(lastStore));
+}
+
+store.subscribe(saveStoreToLocalStorage);
